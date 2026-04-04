@@ -1,0 +1,76 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f9f9f9;
+    margin: 0;
+    padding: 20px;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    max-width: 400px;
+    margin: 0 auto;
+    align-items: center;
+}
+
+input {
+    width: 400px;
+    padding: 10px;
+}
+
+#shopping-list {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+#shopping-list li {
+    width: 300px;
+    background: #fff;
+    border: 1px solid black;
+    border-radius: 6px;
+    padding: 12px;
+    margin-bottom: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    align-items: center;
+}
+
+#shopping-list li.purchased p {
+    text-decoration: line-through;
+    color: #777;
+}
+
+#shopping-list li.purchased {
+    background-color: #5c635c;
+}
+
+button {
+    width: 100px;
+    padding: 8px 12px;
+    border: 1px solid black;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+button.complete-button {
+    background-color: #4caf50;
+    color: white;
+}
+
+button.delete-button {
+    background-color: #f44336;
+    color: white;
+}
+
+.summary {
+    max-width: 400px;
+    margin: 20px auto;
+    text-align: center;
+    font-size: 1.1rem;
+    font-weight: bold;
+}
