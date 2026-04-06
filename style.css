@@ -1,8 +1,24 @@
+/* * { 
+    margin: 0;
+    padding: 0;
+} */
+
 body {
     font-family: Arial, sans-serif;
-    background-color: #f9f9f9;
+    /* background-color: bisque; */
     margin: 0;
-    padding: 20px;
+    padding: 10px;
+    background: url("this is a wallpaper.jpg") no-repeat center center fixed;
+    background-size: cover;
+}
+
+h1 {
+    text-align: center;
+    font-size: 2.5rem;
+    font-family: "Playfair Display", serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
 }
 
 .container {
@@ -17,6 +33,8 @@ body {
 input {
     width: 400px;
     padding: 10px;
+    border: 1px solid black;
+    border-radius: 8px;
 }
 
 #shopping-list {
@@ -57,6 +75,24 @@ button {
     cursor: pointer;
 }
 
+#add-button {
+    transition: transform 0.5s ease ;
+}
+#add-button:hover {
+    transform: scale(1.05);
+    background-color: #4caf50;
+    color: white;
+}
+
+#clear-button {
+    transition: transform 0.5s ease ;
+}
+#clear-button:hover {
+    transform: scale(1.05);
+    background-color: #f44336;
+    color: white;
+}
+
 button.complete-button {
     background-color: #4caf50;
     color: white;
@@ -73,4 +109,20 @@ button.delete-button {
     text-align: center;
     font-size: 1.1rem;
     font-weight: bold;
+}
+/* Media Queries */
+@media (max-width: 682px) {
+    #shopping-list {
+        align-items: center;
+        justify-content: center;
+        display: flex;
+        flex-direction: row;
+    }
+}
+
+@media (max-width: 440px) {
+    input {
+        width: 100%;
+        margin: 0 10px;
+    }
 }
