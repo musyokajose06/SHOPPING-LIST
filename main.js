@@ -18,12 +18,13 @@ function addItem() {
     const price = Number(priceInput.value.trim());
     // Validate inputs 
     if (itemName === '' || !quantity || isNaN(price)) {
-        alert('Please fill in all fields');
+        alert('Please fill in all fields'); // Displays a message to the user
         return;
     }
     // Calculate total price for the item and create list item element
     const total = (quantity * price).toFixed(2);
     const listItem = document.createElement('li');
+    // manipulate the innerHTML of the list item to include the item details and buttons
     listItem.innerHTML = `
         <p>${itemName}</p>
         <p>Quantity: ${quantity}</p>
@@ -37,9 +38,11 @@ function addItem() {
     quantityInput.value = '';
     priceInput.value = '';
     updatePurchasedTotal();
+    saveShoppingList();
 }
 
 // Function to update the total cost of purchased items
+// AI generated
 function updatePurchasedTotal() {
     const purchasedTotal = Array.from(shoppingList.querySelectorAll('li.purchased'))
         .reduce((sum, listItem) => {
@@ -51,7 +54,7 @@ function updatePurchasedTotal() {
     }
 }
 
-// Use event listener delegation for complete and delete buttons
+// Use event listener for complete and delete buttons
 shoppingList.addEventListener('click', function(event) {
     const target = event.target;
     const listItem = target.closest('li');
@@ -61,12 +64,14 @@ shoppingList.addEventListener('click', function(event) {
         listItem.classList.toggle('purchased');
         target.textContent = listItem.classList.contains('purchased') ? 'Purchased' : 'Complete';
         updatePurchasedTotal();
+        saveShoppingList();
         return;
     }
 
     if (target.classList.contains('delete-button')) {
         shoppingList.removeChild(listItem);
         updatePurchasedTotal();
+        saveShoppingList();
         return;
     }
 });
@@ -76,6 +81,21 @@ const clearButton = document.getElementById('clear-button');
 clearButton.addEventListener('click', function() {
     shoppingList.innerHTML = '';
     updatePurchasedTotal();
+    saveShoppingList();
+});
+
+// Function to save shopping list to localStorage
+function saveShoppingList() {
+    localStorage.setItem('shoppingList', shoppingList.innerHTML);
+}
+
+// Function to load shopping list from localStorage on page load
+window.addEventListener('load', function() {
+    const savedList = localStorage.getItem('shoppingList');
+    if (savedList) {
+        shoppingList.innerHTML = savedList;
+        updatePurchasedTotal();
+    }
 });
 
 

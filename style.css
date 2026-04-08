@@ -8,8 +8,8 @@ body {
     /* background-color: bisque; */
     margin: 0;
     padding: 10px;
-    background: url("this is a wallpaper.jpg") no-repeat center center fixed;
-    background-size: cover;
+    /* background: url("this is a wallpaper.jpg") no-repeat center center fixed;
+    background-size: cover; */
 }
 
 h1 {
@@ -17,7 +17,7 @@ h1 {
     font-size: 2.5rem;
     font-family: "Playfair Display", serif;
     font-optical-sizing: auto;
-    font-weight: 400;
+    font-weight: 600;
     font-style: normal;
 }
 
